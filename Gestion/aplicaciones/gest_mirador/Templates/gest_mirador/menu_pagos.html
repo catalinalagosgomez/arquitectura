@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menú de Pagos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .menu-card {
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+        }
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+        .icon-large {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card-body {
+            padding: 2rem;
+        }
+        .btn-menu {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row mb-4">
+            <div class="col text-center">
+                <h2>Gestión de Pagos</h2>
+                <p class="text-muted">Seleccione una opción para continuar</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <div class="card menu-card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-file-invoice-dollar icon-large text-primary"></i>
+                        <h5 class="card-title">Registrar Pago</h5>
+                        <p class="card-text">Registrar un nuevo pago de gastos comunes o servicios</p>
+                        <a href="{% url 'registrar_pago' %}" class="btn btn-primary btn-menu">
+                            <i class="fas fa-plus"></i> Registrar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card menu-card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-list-alt icon-large text-success"></i>
+                        <h5 class="card-title">Listar Pagos</h5>
+                        <p class="card-text">Ver lista de todos los pagos registrados</p>
+                        <a href="{% url 'listar_pagos' %}" class="btn btn-success btn-menu">
+                            <i class="fas fa-list"></i> Ver Lista
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card menu-card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-clock icon-large text-warning"></i>
+                        <h5 class="card-title">Pagos Pendientes</h5>
+                        <p class="card-text">Ver pagos pendientes y morosos</p>
+                        <a href="{% url 'listar_pagos' %}?estado=pendiente" class="btn btn-warning btn-menu">
+                            <i class="fas fa-exclamation-circle"></i> Pendientes
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row mt-4">
+            <div class="col text-center">
+                <a href="{% url 'menu_gest' %}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Volver al Menú Principal
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
